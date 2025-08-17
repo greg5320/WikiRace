@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Wiki Race",
+  "version": "1.1",
+  "description": "Reach the target article from a start article as fast as possible using only internal links.",
+  "permissions": ["storage", "activeTab", "scripting", "tabs"],
+  "host_permissions": ["*://*.wikipedia.org/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/wikipedia-logo-16px.png",
+      "36": "icons/wikipedia-logo-36px.png",
+      "48": "icons/wikipedia-logo-48px.png",
+      "128": "icons/wikipedia-logo-128px.png"
+    }
+  },
+  "icons": {
+    "16": "icons/wikipedia-logo-16px.png",
+    "36": "icons/wikipedia-logo-36px.png",
+    "48": "icons/wikipedia-logo-48px.png",
+    "128": "icons/wikipedia-logo-128px.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.wikipedia.org/*"],
+      "js": ["content_script.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}
